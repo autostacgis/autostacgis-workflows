@@ -1,0 +1,5 @@
+{
+  "id": "metadata-value",
+  "version": "1.0.0",
+  "description": "Solve for a particular STAC metadata value using backward chaining. Set a path or JSONata expression and the expected value."
+}

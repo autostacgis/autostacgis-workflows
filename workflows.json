@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "workflows": [
+    {
+      "id": "metadata-value",
+      "version": "1.0.0",
+      "description": "Solve for a particular STAC metadata value using backward chaining. Set a path or JSONata expression and the expected value.",
+      "source": {
+        "repository": "https://github.com/autostacgis/autostacgis-workflows",
+        "ref": "main",
+        "path": "workflows/metadata-value/workflow.json",
+        "url": "https://raw.githubusercontent.com/autostacgis/autostacgis-workflows/main/workflows/metadata-value/workflow.json",
+        "sha256": "15f08581d013181c85528eb1d88438afe894e57f696a75a38a518e9e79a177c6"
+      }
+    }
+  ]
+}

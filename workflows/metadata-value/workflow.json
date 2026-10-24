@@ -1,0 +1,11 @@
+{
+  "solver": {
+    "backward_chain": {}
+  },
+  "goal": {
+    "metadata-value": {
+      "path": "properties.ready",
+      "value": true
+    }
+  }
+}

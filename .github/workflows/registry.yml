@@ -1,0 +1,43 @@
+name: Workflow registry
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: workflow-registry-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  registry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install 'jsonschema>=4.23,<5'
+      - name: Validate publication and versions
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          REF: ${{ github.sha }}
+        run: |
+          mkdir -p public
+          if [ -n "$BASE" ]; then
+            python scripts/build_manifest.py --ref "$REF" --check-base "$BASE" --output public/workflows.json
+          else
+            python scripts/build_manifest.py --ref "$REF" --output public/workflows.json
+          fi
+      - uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: public
+      - uses: actions/deploy-pages@v4
+        if: github.event_name != 'pull_request'
