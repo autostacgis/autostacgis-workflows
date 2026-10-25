@@ -4,8 +4,8 @@ Published workflows are ordinary capability-grouped JSON configuration files. Th
 
 ```sh
 autostacgis workflows available
-autostacgis workflows download metadata-value ./workflows
-autostacgis validate ./workflows/metadata-value.json
+autostacgis workflows download mosaic ./workflows
+autostacgis validate ./workflows/mosaic.json
 ```
 
 Edit the downloaded goal before running. The example asks for `properties.ready == true`; provide STAC inputs or add a metadata source and processing plugins that can produce your goal. No plugins are installed by downloading a workflow.

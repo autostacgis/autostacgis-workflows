@@ -23,7 +23,7 @@ def build(ref, check_base=None):
         path = folder / "workflow.json"
         document = json.loads(path.read_text())
         validator.validate(document)
-        if check_base:
+        if check_base and version != "0.0.1":
             old = subprocess.run(["git", "show", f"{check_base}:{path.relative_to(ROOT)}"], cwd=ROOT, capture_output=True, text=True)
             if old.returncode == 0 and json.loads(old.stdout) != document:
                 previous = subprocess.check_output(["git", "show", f"{check_base}:{(folder / 'publication.json').relative_to(ROOT)}"], cwd=ROOT, text=True)

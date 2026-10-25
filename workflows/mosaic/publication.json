@@ -1,0 +1,5 @@
+{
+  "id": "mosaic",
+  "version": "0.0.1",
+  "description": "Create a multispectral raster mosaic: extract and clean image footprints, construct Voronoi seamlines, mask each scene, and combine the results. Saving is optional on each plugin result."
+}
