@@ -11,3 +11,5 @@ autostacgis validate ./workflows/mosaic.json
 Edit the downloaded goal before running. The example asks for `properties.ready == true`; provide STAC inputs or add a metadata source and processing plugins that can produce your goal. No plugins are installed by downloading a workflow.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to publish through a pull request. Releases pin source URLs to a commit and SHA-256, using the same registry transport as Python plugins. Saved copies and edits in the GUIs belong to the connected backend; publication does not change them.
+
+Published workflows must use the current capability-grouped format. Catalog/request documents, separate request overlays, and shorthand string output destinations are rejected by publication validation.
